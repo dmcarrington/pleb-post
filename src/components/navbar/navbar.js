@@ -48,7 +48,7 @@ const Navbar = () => {
         <span>{userBalance}</span>
 
         <Button
-          colorScheme="blue"
+          colorScheme={status !== "authenticated" ? "blue" : "red"}
           onClick={() => (status !== "authenticated" ? signIn() : signOut())}
         >
           {status !== "authenticated" ? "login" : "logout"}
