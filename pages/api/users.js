@@ -35,7 +35,7 @@ async function addUser(req, res) {
 
     const userExists = await User.findOne({ username: name });
     if (userExists) {
-      return res.status(200).json(userExists);
+      return res.status(200).json({ exists: userExists });
     }
 
     const user = await User.create(newUserObject);
