@@ -4,6 +4,7 @@ const PostSchema = new Schema({
   title: { type: String, required: true },
   description: { type: String, required: true },
   author: { type: String, required: true },
+  tips: { type: Number, default: 0 },
 });
 
 PostSchema.set("toJSON", { getters: true });

@@ -1,5 +1,5 @@
 import connectMongo from "../../src/lib/connectMongo";
-import Post from "../../src/models/Posts";
+import Posts from "../../src/models/Posts";
 
 export default function handler(req, res) {
   switch (req.method) {
@@ -18,7 +18,9 @@ export default function handler(req, res) {
 async function getPosts(req, res) {
   try {
     await connectMongo();
-    const posts = await Post.find();
+
+    const posts = await Posts.find();
+
     res.status(200).json(posts);
   } catch (error) {
     res.status(500).json({ error: error.message });
@@ -28,8 +30,10 @@ async function getPosts(req, res) {
 async function addPost(req, res) {
   try {
     await connectMongo();
-    const user = await Post.create(req.body);
-    res.status(201).json({ user });
+
+    const post = await Posts.create(req.body);
+
+    res.status(201).json(post);
   } catch (error) {
     res.status(500).json({ error: error.message });
   }

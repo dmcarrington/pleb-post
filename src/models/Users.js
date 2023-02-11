@@ -2,6 +2,10 @@ import { Schema, model, models } from "mongoose";
 
 const UserSchema = new Schema({
   username: { type: String, required: true },
+  wallet_id: { type: String, required: true },
+  wallet_admin: { type: String, required: true },
+  admin_key: { type: String, required: true },
+  in_key: { type: String, required: true },
   profilePhoto: {
     type: String,
     default: function () {
